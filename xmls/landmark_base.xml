@@ -1,0 +1,33 @@
+<sample>
+<num_epochs>
+100
+</num_epochs>
+<checkpoint_path>
+/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/experiments/LandmarkBase/checkpoint_dir
+</checkpoint_path>
+<result_dir>
+/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/experiments/LandmarkBase/result_dir
+</result_dir>
+<log_dir>
+/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/experiments/LandmarkBase/log_dir
+</log_dir>
+<batch_size>
+3
+</batch_size>
+<model_name>
+LandmarkBase
+</model_name>
+<learning_rate>
+0.0001
+</learning_rate>
+<print_iter>
+	100
+</print_iter>
+<save_iter>
+	10
+</save_iter>
+<landmark_images>/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/data/FaceLandmarks/allImg.txt</landmark_images>
+<landmark_points>/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/data/FaceLandmarks/allOut.txt</landmark_points>
+<num_landmarks>58</num_landmarks>
+<input_dims>480 640</input_dims>
+</sample>

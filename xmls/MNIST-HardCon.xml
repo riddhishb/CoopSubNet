@@ -1,0 +1,37 @@
+<sample>
+<num_epochs>
+5000
+</num_epochs>
+<case_number>4</case_number>
+<checkpoint_path>
+/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/experiments/MNISTCase4/checkpoint_dir
+</checkpoint_path>
+<result_dir>
+/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/experiments/result_dir
+</result_dir>
+<log_dir>
+/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/experiments/MNISTCase4/log_dir
+</log_dir>
+<batch_size>
+10
+</batch_size>
+<reduced_data>
+25
+</reduced_data>
+<bottleneck>256</bottleneck>
+<burn_in>5</burn_in>
+<cae_weight_init>10</cae_weight_init>
+<cae_weight_final>10</cae_weight_final>
+<model_name>
+MNISTCase4
+</model_name>
+<learning_rate>
+0.01
+</learning_rate>
+<print_iter>
+	1000
+</print_iter>
+<save_iter>
+	10
+</save_iter>
+</sample>
