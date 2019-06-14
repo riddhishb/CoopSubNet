@@ -71,8 +71,8 @@ def temp(xmlfile, caseID):
 
 if __name__ == "__main__":
 	parser = ArgumentParser()
-	parser.add_argument("--xmlfilepath", type=float, dest="xmlfile", help="xml file path containing parameters")
-	parser.add_argument("--caseID", type=float, dest="caseID", default="CAE", help="the case ID for experimentation")
+	parser.add_argument("--xmlfilepath", type=str, dest="xmlfile", help="xml file path containing parameters")
+	parser.add_argument("--caseID", type=str, dest="caseID", default="CAE", help="the case ID for experimentation")
 	args = parser.parse_args()
 	temp(**vars(args))
 
