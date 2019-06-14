@@ -13,7 +13,7 @@ import tensorflow as tf
 import csv
 import xml.etree.ElementTree as ET
 import sys
-import sys
+from argparse import ArgumentParser
 sys.path.append('../ext')
 import utils
 import networks_MNIST
@@ -21,7 +21,7 @@ from utils import show_all_variables
 from utils import check_folder
 
 
-def temp(xmlfilename, caseID):
+def temp(xmlfile, caseID):
 	# first read the xml file
 
 	print('....................................')
@@ -81,7 +81,7 @@ def temp(xmlfilename, caseID):
 
 if __name__ == "__main__":
 	parser = ArgumentParser()
-	parser.add_argument("--xmlfilepath", type=float, dest="xmlfilename", help="xml file path containing parameters")
+	parser.add_argument("--xmlfilepath", type=float, dest="xmlfile", help="xml file path containing parameters")
 	parser.add_argument("--caseID", type=float, dest="caseID", default="CAE", help="the case ID for experimentation")
 	args = parser.parse_args()
 	temp(**vars(args))

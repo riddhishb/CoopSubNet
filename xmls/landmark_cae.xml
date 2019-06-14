@@ -17,7 +17,6 @@
 <model_name>
 LandmarkCAE
 </model_name>
-<noise_var>0.1</noise_var>
 <learning_rate>
 0.0001
 </learning_rate>
@@ -29,10 +28,10 @@ LandmarkCAE
 </save_iter>
 <bottleneck>32</bottleneck>
 <burn_in>100</burn_in>
-<cae_weight_init>1000</cae_weight_init>
-<cae_weight_final>1000</cae_weight_final>
+<cae_weight>1000</cae_weight>
 <landmark_images>/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/data/FaceLandmarks/allImg.txt</landmark_images>
 <landmark_points>/home/sci/riddhishb/Documents/git-repos/cooperativenetworks/data/FaceLandmarks/allOut.txt</landmark_points>
 <num_landmarks>58</num_landmarks>
 <input_dims>480 640</input_dims>
+<l1_wt>0.02</l1_wt> <!-- redundent for plain CAE and hardcon -->
 </sample>
