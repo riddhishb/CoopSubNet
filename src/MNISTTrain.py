@@ -13,87 +13,75 @@ import tensorflow as tf
 import csv
 import xml.etree.ElementTree as ET
 import sys
-
-
+import sys
 sys.path.append('../ext')
 import utils
-import networks
+import networks_MNIST
 from utils import show_all_variables
 from utils import check_folder
 
-xmlfile='../xmls/case4MNIST.xml'
-# first read the xml file
-tree=ET.parse(xmlfile)
-root = tree.getroot()
-# get the case number 
-caseNO = int(utils.readSpecificTagXML(root, 'case_number'))
 
-print('....................................')
-print('Working with Case Number : ', caseNO)
-print('....................................')
+def temp(xmlfilename, caseID):
+	# first read the xml file
 
-if caseNO==1:
-	# load the graph first
-	config = tf.ConfigProto()
-	config.gpu_options.allow_growth = True
-	config.gpu_options.per_process_gpu_memory_fraction = 0.5
-	sess = tf.Session(config=config)
-	net = networks.MNIST_Base_Classification(sess, xmlfilename=xmlfile)
+	print('....................................')
+	print('Working with Case : ', caseID)
+	print('....................................')
 
-	# build the graph
-	net.build_model()
+	if caseID=="CAE":
+		# load the graph first
+		config = tf.ConfigProto()
+		config.gpu_options.allow_growth = True
+		config.gpu_options.per_process_gpu_memory_fraction = 0.5
+		sess = tf.Session(config=config)
+		net = networks_MNIST.MNIST_CAE_Classification(sess, xmlfilename=xmlfile)
 
-	show_all_variables()
+		# build the graph
+		net.build_model()
 
-	net.train_model()
+		show_all_variables()
 
-	net.test_model()
-	# net.PCA_test_model()
+		net.train_model()
+		net.validation_model()
+		# net.test_model()
 
-if caseNO==2:
-	# load the graph first
-	config = tf.ConfigProto()
-	config.gpu_options.allow_growth = True
-	config.gpu_options.per_process_gpu_memory_fraction = 0.5
-	sess = tf.Session(config=config)
-	net = networks.MNIST_Case2_Classification(sess, xmlfilename=xmlfile)
+	if caseID=="Hardcon":
+		# load the graph first
+		config = tf.ConfigProto()
+		config.gpu_options.allow_growth = True
+		config.gpu_options.per_process_gpu_memory_fraction = 0.5
+		sess = tf.Session(config=config)
+		net = networks_MNIST.MNIST_Hardcon_Classification(sess, xmlfilename=xmlfile)
 
-	# build the graph
-	net.build_model()
+		# build the graph
+		net.build_model()
 
-	show_all_variables()
+		show_all_variables()
 
-	net.train_model()
+		net.train_model()
+		net.validation_model()
+		# net.test_model()
 
-	net.test_model()
+	if caseID=="CAEL1":
+		# load the graph first
+		config = tf.ConfigProto()
+		config.gpu_options.allow_growth = True
+		config.gpu_options.per_process_gpu_memory_fraction = 0.5
+		sess = tf.Session(config=config)
+		net = networks_MNIST.MNIST_CAEL1Norm_Classification(sess, xmlfilename=xmlfile)
 
-if caseNO==3:
-	# load the graph first
-	config = tf.ConfigProto()
-	config.gpu_options.allow_growth = True
-	config.gpu_options.per_process_gpu_memory_fraction = 0.5
-	sess = tf.Session(config=config)
-	net = networks.MNIST_Case3_Classification(sess, xmlfilename=xmlfile)
+		# build the graph
+		net.build_model()
 
-	# build the graph
-	net.build_model()
+		show_all_variables()
 
-	show_all_variables()
+		net.train_model()
+		net.validation_model()
+		# net.test_model()
 
-	net.train_model()
-
-	net.test_model()
-
-if caseNO==4:
-	
-	config = tf.ConfigProto()
-	# config.gpu_options.allow_growth = True
-	# config.gpu_options.per_process_gpu_memory_fraction = 0.5
-	sess = tf.Session(config=config)
-	net = networks.MNIST_Case4_Classification(sess, xmlfilename=xmlfile)
-	# build the graph
-	net.build_model()
-	show_all_variables()
-	net.train_model()
-	net.test_model()
-	net.validation_model()
+if __name__ == "__main__":
+	parser = ArgumentParser()
+	parser.add_argument("--xmlfilepath", type=float, dest="xmlfilename", help="xml file path containing parameters")
+	parser.add_argument("--caseID", type=float, dest="caseID", default="CAE", help="the case ID for experimentation")
+	args = parser.parse_args()
+	temp(**vars(args))

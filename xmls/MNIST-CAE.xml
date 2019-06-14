@@ -2,7 +2,6 @@
 <num_epochs>
 5000
 </num_epochs>
-<case_number>4</case_number>
 <checkpoint_path>
 /home/sci/riddhishb/Documents/git-repos/cooperativenetworks/experiments/MNISTCase4/checkpoint_dir
 </checkpoint_path>
@@ -18,10 +17,9 @@
 <reduced_data>
 25
 </reduced_data>
-<bottleneck>256</bottleneck>
+<bottleneck>16</bottleneck>
 <burn_in>5</burn_in>
-<cae_weight_init>10</cae_weight_init>
-<cae_weight_final>10</cae_weight_final>
+<cae_weight>10</cae_weight>
 <model_name>
 MNISTCase4
 </model_name>
@@ -34,4 +32,5 @@ MNISTCase4
 <save_iter>
 	10
 </save_iter>
+<l1_wt>0.02</l1_wt> <!-- redundent for plain CAE and hardcon -->
 </sample>
